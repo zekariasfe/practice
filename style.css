@@ -1,0 +1,35 @@
+p,
+li {
+  font-size: 18px;
+}
+#header {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  margin: 0;
+}
+body {
+  font-family: "georgia";
+  background-color: #eee;
+  margin: 0;
+}
+.review {
+  background-color: white;
+  width: 650px;
+  display: none;
+  margin: 0 auto;
+}
+.active {
+  display: block;
+}
+img {
+  width: 650px;
+}
+button {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  background-color: #28a745;
+  display: block;
+  margin: 40px auto;
+}
