@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>User feedback form</h2>
+    <form id='feedbackForm'action="/submit-form" method="POST">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError"></span>
+          </div>
+          <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="99">
+            <span class="error" id="ageError"></span>
+          </div>
+           <div>
+            <label for="message">Message:</label><br>
+            <textarea id="meassage" name="message" rows="8" cols="50" placeholder="Enter your message here..."  ></textarea>
+            <span class="error" id="messageError"></span>
+          </div>
+          <div>
+            <input type="submit" value="Submit">
+          </div>
+    </form>
+    <script>
+        const form = document.getElementById('feedbackForm');
+
+        form.addEventListener('submit', function(event) {
+            // Validate email
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailInput.value)) {
+              emailError.textContent = 'Please enter a valid email address.';
+              return;
+            } else {
+              emailError.textContent = '';
+            }
+
+            // Validate age
+            const ageInput = document.getElementById('age');
+            const ageError = document.getElementById('ageError');
+            if (ageInput.value < 18 || ageInput.value > 99) {
+              ageError.textContent = 'Please enter a valid age between 18 and 99.';
+              return;
+            } else {
+              ageError.textContent = '';
+            }
+
+            // Validate message length
+            const messageInput = document.getElementById('message');
+            const messageError = document.getElementById('messageError');
+            messageInput.addEventListener("input", function () {
+      const message = messageInput.value.trim();
+      const words = messageInput.split(/\s+/).filter(word => word.length > 0);
+      const wordCount = words.length;
+      const charCount = message.length;
+      let messageText = `Word Count: ${wordCount}/100, Character Count: ${charCount}/5000`;
+
+      // Check word count
+      if (wordCount > 100) {
+        messageText += " - Word limit exceeded!";
+      }
+
+      // Check character count
+      if (charCount > 5000) {
+        messageText += " - Character limit exceeded!";
+      }
+
+      messageError.textContent = messageText;
+    });
+         
+        })
+       
+    </script>
+</body>
+</html>
