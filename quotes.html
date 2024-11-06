@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Storage Application</title>
+  <link rel="stylesheet" href="q-style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Quote Storage Application</h1>
+    
+    <div class="input-fields">
+      <label for="quote">Quote:</label>
+      <input type="text" id="quote" placeholder="Enter your quote here">
+
+      <label for="author">Author:</label>
+      <input type="text" id="author" placeholder="Enter the author's name">
+
+      <button id="add-quote">Add Quote</button>
+    </div>
+
+    <section id="quotes-section">
+      <h2>Stored Quotes</h2>
+      <ul id="quotes-list"></ul>
+    </section>
+  </div>
+
+  <script src="quotes.js"></script>
+</body>
+</html>
